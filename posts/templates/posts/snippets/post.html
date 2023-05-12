@@ -1,0 +1,7 @@
+<article>
+    <h2>Publicado por <a href="{{ obj.get_absolute_url }}"><u>{{ obj.author }}</u></a></h2>
+    <p class="date">
+        Postagem coletada em {{ obj.datePost }}
+    </p>
+    {{ obj.description|linebreaks|truncatewords:6 }}{% if obj.description|length > 6 %}<a href="{{ obj.get_absolute_url }}">Ver mais</a>{% endif %}
+</article>

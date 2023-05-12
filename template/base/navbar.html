@@ -1,0 +1,28 @@
+{% url 'posts:list' as posts_list_url %}
+{% url 'posts:repuList' as repuPosts_list_url %}
+{% url 'form' as form_url %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <a class="navbar-brand" href="{% url 'posts:list' %}">Moradias Limeira</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == posts_list_url %} active {% endif %}" href="{% url 'posts:list' %}">Vagas em residências</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == repuPosts_list_url %} active {% endif %}" href="{% url 'posts:repuList' %}">Vagas em repúblicas</a>
+            </li>
+            <li class="nav-item {% if request.path == form_url %} active {% endif %}">
+                <a class="nav-link" href="{% url 'form' %}">Crie seu Post</a>
+            </li>
+        </ul>
+        <div class="col-md-5">
+            {% include 'search/snippets/search-form.html' %}
+        </div>
+    </div>
+</nav>

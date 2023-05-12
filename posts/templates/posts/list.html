@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    {% for obj in object_list.accepted %}
+        <div class='text-center'>
+            <h1>{{ title }}</h1>
+        </div>
+        {% include 'posts/snippets/post.html' with instance=obj %}
+    {% endfor%}
+    </div>
+{% endblock content %}
